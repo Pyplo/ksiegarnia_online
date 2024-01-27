@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Twój Koszyk</h2>
+{% if cart_items %}
+    <ul>
+        {% for book in cart_items %}
+            <li>{{ book.title }} - {{ book.price }} zł</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Koszyk jest pusty</p>
+{% endif %}
+<a href="{{ url_for('order') }}" class="btn btn-success">Przejdź do zamówienia</a>
+{% endblock %}
